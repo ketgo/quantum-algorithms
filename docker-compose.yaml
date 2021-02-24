@@ -1,0 +1,25 @@
+version: "3.7"
+
+services:
+
+  jupyter-qiskit:
+    build:
+      context: .
+    restart: always
+    image: jupyter-qiskit
+    container_name: jupyter-qiskit
+    env_file:
+      - .env
+    networks:
+      - quantum_algorithm
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:rw
+      - ${DATA_HOST_VOLUME}:${DATA_CONTAINER_VOLUME}
+      - ${NOTEBOOKS_HOST_VOLUME}:${NOTEBOOKS_CONTAINER_VOLUME}
+    ports:
+      - "${HOST_PORT:-8888}:8888"
+
+networks:
+  quantum_algorithm:
+    name: quantum_algorithm
+
