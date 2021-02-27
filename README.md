@@ -21,3 +21,8 @@ To bring down the server run the following command:
 ## License
 
 MIT License
+
+## Resources
+
+- (Qiskit Texbook)[https://qiskit.org/textbook/preface.html]
+
