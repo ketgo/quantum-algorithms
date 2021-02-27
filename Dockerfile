@@ -2,12 +2,17 @@ FROM jupyter/scipy-notebook
 
 USER root
 
-# Install Jupyter Notebook Extensions
-RUN pip install --no-cache-dir jupyter_contrib_nbextensions && jupyter contrib nbextension install 
-
 # Install Qiskit
-RUN pip3 install --no-cache-dir qiskit && \
-    fix-permissions "${CONDA_DIR}" && \
+COPY requirements.txt .
+RUN pip3 install --no-cache-dir -r requirements.txt
+RUN rm requirements.txt
+
+# Install Jupyter Lab Extensions
+COPY extensions.txt .
+RUN pip3 install --no-cache-dir -r extensions.txt
+RUN rm extensions.txt
+
+RUN fix-permissions "${CONDA_DIR}" && \
     fix-permissions "/home/${NB_USER}" && \
     rm -rf /root/.cache
 
