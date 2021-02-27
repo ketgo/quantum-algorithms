@@ -12,6 +12,7 @@ When the deployment is done, the URL for the jupyter server can be obtained from
 ```bash
   $ docker-compose logs
 ```
+The URL would be of the form `http://localhost:8888/lab?token=<token>`.
 
 To bring down the server run the following command:
 ```bash

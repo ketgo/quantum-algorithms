@@ -15,4 +15,3 @@ USER $NB_UID
 
 # Remove work dir
 RUN rm -r ~/work
-
