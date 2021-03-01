@@ -8,6 +8,10 @@ COVERAGE_OPTS ?=
 .PHONY: default
 default: test
 
+.PHONY: deps
+deps:
+	${PIP} install -r requirements.txt
+
 .PHONY: test
 test:
 	${PY_TEST} -m ${MARK}
