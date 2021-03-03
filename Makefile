@@ -4,6 +4,7 @@ PY_TEST = ${PYTHON} -m pytest
 
 MARK ?= ""
 COVERAGE_OPTS ?=
+PYTHONPATH = "./src"
 
 .PHONY: default
 default: test
