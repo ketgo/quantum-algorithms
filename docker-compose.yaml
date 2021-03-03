@@ -14,15 +14,15 @@ services:
     env_file:
       - .env
     networks:
-      - quantum_algorithm
+      - app_vnet
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:rw
-      - ${DATA_HOST_VOLUME}:${DATA_CONTAINER_VOLUME}
+      - ${DATA_HOST_VOLUME}:${DATA_CONTAINER_VOLUME:-./data}
       - ${NOTEBOOKS_HOST_VOLUME}:${NOTEBOOKS_CONTAINER_VOLUME}
       - ${MODULES_HOST_VOLUME}:${MODULES_CONTAINER_VOLUME}
     ports:
       - "${HOST_PORT:-8888}:8888"
 
 networks:
-  quantum_algorithm:
-    name: quantum_algorithm
+  app_vnet:
+    name: quantum_computing
