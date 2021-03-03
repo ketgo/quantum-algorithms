@@ -10,8 +10,7 @@ from qiskit import transpile, assemble
 
 class QuantumCircuit:
     """
-    This class provides a simple interface for interaction
-    with the quantum circuit
+        This class provides a simple interface for building and running a quantum circuit
     """
 
     def __init__(self, n_qubits, backend, shots):
