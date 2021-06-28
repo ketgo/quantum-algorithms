@@ -11,11 +11,15 @@ from .circuit import QuantumCircuit
 
 
 class HybridFunction(Function):
-    """ Hybrid quantum - classical function definition """
+    """
+        Hybrid quantum - classical function definition
+    """
 
     @staticmethod
     def forward(ctx, input, quantum_circuit, shift):
-        """ Forward pass computation """
+        """
+            Forward pass computation
+        """
         ctx.shift = shift
         ctx.quantum_circuit = quantum_circuit
 
@@ -27,7 +31,9 @@ class HybridFunction(Function):
 
     @staticmethod
     def backward(ctx, grad_output):
-        """ Backward pass computation """
+        """
+            Backward pass computation
+        """
         input, expectation_z = ctx.saved_tensors
         input_list = np.array(input.tolist())
 
